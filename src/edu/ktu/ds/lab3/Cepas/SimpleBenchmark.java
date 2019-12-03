@@ -136,7 +136,7 @@ public class SimpleBenchmark {
             }
             
             long t0 = System.nanoTime();
-            Ks.oun("javaMap remove()");
+            Ks.oun("java.util.HashMap<String, String> remove()");
             
             String path = "D:/Programavimas/Java/Lab3_MaisosLenteles/src/edu/ktu/ds/lab3/Cepas/zodynas.txt";
                 try (Stream<String> lines = Files.lines(Paths.get(path))) {
@@ -149,7 +149,7 @@ public class SimpleBenchmark {
             Ks.oun((t1-t0) / 1e9);
             
             long t2 = System.nanoTime();
-            Ks.oun("ktuMap remove()");
+            Ks.oun("edu.ktu.ds.lab3.utils.HashMap<String, String> remove()");
             
                 try (Stream<String> lines = Files.lines(Paths.get(path))) {
                  lines.forEach(x -> {ktuMap.remove(x); } );
@@ -160,6 +160,8 @@ public class SimpleBenchmark {
             long t3 = System.nanoTime();
             Ks.oun((t3-t2) / 1e9);
                 
+            Ks.oun(javaMap);
+            
             StringBuilder sb = new StringBuilder();
             chainsSizes.forEach(p -> sb.append(p).append(System.lineSeparator()));
             timekeeper.logResult(sb.toString());

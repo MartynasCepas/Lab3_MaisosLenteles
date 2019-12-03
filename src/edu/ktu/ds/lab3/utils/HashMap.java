@@ -372,7 +372,7 @@ public class HashMap<K, V> implements EvaluableMap<K, V> {
     
     public V putIfAbsent(K key, V value){
         if(key == null)
-            throw new IllegalArgumentException("Key is null");;
+            throw new IllegalArgumentException("Key is null");
         
         for(Node<K, V> node : table){
             if(node != null && node.key == key){
